@@ -38,7 +38,7 @@ def run_subprocess(program, arguments):
         os.path.realpath(__file__)), program)
     command_line = [prog_path] + arguments
     result = subprocess.run(command_line,
-                            capture_output=True,
+                            stderr=PIPE,stdout=PIPE, ##capture_output=True,
                             encoding="utf-8")
     return(result.stdout)
 
